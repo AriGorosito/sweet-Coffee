@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sweet Coffe|Tu pausa favorita</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <nav class="navbar">
+      <a class="logo" href="#">Sweet Coffe</a>
+      <a class="nav-link" href="#pedido">Mi carrito <span class="cart-count" id="cantidad">0</span></a>
+    </nav>
+    <div class="hero-content">
+      <span class="eyebrow">CAFÉ · SABORES · MOMENTOS</span>
+      <h1>Tu pausa favorita<br><em>empieza acá.</em></h1>
+      <p>elegi tu mejor opción.</p>
+      <a class="cta" href="#categorias">Explorar menú <span>↓</span></a>
+    </div>
+    <div class="hero-deco"></div>
+  </header>
+
+  <main>
+    <section class="categorias section" id="categorias">
+      <div class="section-heading">
+        <span class="eyebrow">HECHO PARA DISFRUTAR</span>
+        <h2>¿Qué se te antoja?</h2>
+        <p>Elegí una categoría para descubrir todas las opciones.</p>
+      </div>
+      <div class="category-grid">
+        <button class="category-card" data-categoria="cafes" aria-label="Ver opciones de café">
+          <img src="cafe latte.jfif" alt="Café latte cremoso">
+          <span class="category-overlay"></span><span class="category-text"><small>01 / CALIENTES Y FRÍOS</small><strong>Cafés</strong><span>Ver opciones ↗</span></span>
+        </button>
+        <button class="category-card" data-categoria="sandwiches" aria-label="Ver opciones de sandwiches">
+          <img src="sandwiches.jpg" alt="Sandwich recién preparado">
+          <span class="category-overlay"></span><span class="category-text"><small>02 / SALADOS</small><strong>Sandwiches</strong><span>Ver opciones ↗</span></span>
+        </button>
+        <button class="category-card" data-categoria="tortas" aria-label="Ver opciones de tortas">
+          <img src="torta chocolate.jfif" alt="Porción de torta de chocolate">
+          <span class="category-overlay"></span><span class="category-text"><small>03 / ALGO DULCE</small><strong>Tortas</strong><span>Ver opciones ↗</span></span>
+        </button>
+        <button class="category-card" data-categoria="budines" aria-label="Ver opciones de budines">
+          <img src="BUDIN.jpg" alt="Budín casero">
+          <span class="category-overlay"></span><span class="category-text"><small>04 / CASERITOS</small><strong>Budines</strong><span>Ver opciones ↗</span></span>
+        </button>
+      </div>
+    </section>
+
+    <section class="pedido section" id="pedido">
+      <div class="section-heading">
+        <span class="eyebrow">TU SELECCIÓN</span>
+        <h2>Mi carrito <span class="mini-cup">♡</span></h2>
+        <p>Revisá todo lo rico que elegiste.</p>
+      </div>
+      <div class="pedido-panel">
+        <ul id="lista" class="lista-pedido"><li class="empty-state">Todavía no agregaste nada. ¡Elegí algo rico!</li></ul>
+        <div class="pedido-bottom">
+          <div><span class="total-label">Subtotal</span><strong>$<span id="total">0</span></strong></div>
+          <button class="primary-button" id="confirmar">Continuar con el envío <span>→</span></button>
+        </div>
+        <p id="mensaje" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a class="logo" href="#">Sweet Coffe</a>
+    <p> By Sofi y Ari - 2026</p>
+    <div class="footer-info">
+      <span><strong>Contacto</strong></span>
+      <a href="tel:1161384797">Teléfono: 1161384797</a>
+      <a href="https://www.instagram.com/Sweet.coffe/" target="_blank" rel="noopener noreferrer">Instagram: Sweet.coffe</a>
+      <a href="https://www.facebook.com/Sweet.coffe" target="_blank" rel="noopener noreferrer">Facebook: Sweet.coffe</a>
+    </div>
+  </footer>
+
+  <div class="modal-backdrop" id="modal" aria-hidden="true">
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
+      <button class="close-modal" id="cerrar-modal" aria-label="Cerrar ventana">×</button>
+      <span class="eyebrow" id="modal-eyebrow">NUESTRO MENÚ</span>
+      <h2 id="modal-titulo">Cafés</h2>
+      <p class="modal-intro" id="modal-descripcion">Elegí tu favorito.</p>
+      <div class="subcategories" id="subcategorias"></div>
+      <div class="modal-products" id="modal-productos"></div>
+    </section>
+  </div>
+
+  <div class="modal-backdrop" id="checkout-modal" aria-hidden="true">
+    <section class="modal checkout-modal" role="dialog" aria-modal="true" aria-labelledby="checkout-titulo">
+      <button class="close-modal" id="cerrar-checkout" aria-label="Cerrar formulario">×</button>
+      <span class="eyebrow">UN ÚLTIMO PASO</span>
+      <h2 id="checkout-titulo">Datos para el envío</h2>
+      <p class="modal-intro">Completá tus datos para preparar tu pedido.</p>
+      <form id="checkout-form">
+        <div class="form-grid">
+          <label>Nombre y apellido<input name="nombre" autocomplete="name" required placeholder="Tu nombre completo"></label>
+          <label>Teléfono<input name="telefono" type="tel" autocomplete="tel" required placeholder="Tu número de contacto"></label>
+          <label class="full-field">Correo electrónico<input name="email" type="email" autocomplete="email" required placeholder="tunombre@correo.com"></label>
+          <label class="full-field">Dirección de entrega<input name="direccion" autocomplete="street-address" required placeholder="Calle, número, piso/depto"></label>
+          <label>Barrio / localidad<input name="localidad" required placeholder="Tu localidad"></label>
+          <label>Código postal<input name="cp" autocomplete="postal-code" required placeholder="Código postal"></label>
+          <label class="full-field">Notas para el envío (opcional)<textarea name="notas" rows="2" placeholder="Referencias, aclaraciones..."></textarea></label>
+        </div>
+        <div class="shipping-box">
+          <div><span>Subtotal del pedido</span><strong id="checkout-subtotal">$0</strong></div>
+          <div><span>Costo de envío</span><strong id="costo-envio">$0</strong></div>
+          <p id="envio-mensaje">El envío es gratis en compras desde $20.000.</p>
+          <div class="grand-total"><span>Total a pagar</span><strong id="checkout-total">$0</strong></div>
+        </div>
+        <fieldset class="payment-options">
+          <legend>Métodos de pago</legend>
+          <label><input type="radio" name="pago" value="Mercado Pago" required> Mercado Pago</label>
+          <label><input type="radio" name="pago" value="Tarjeta de crédito"> Tarjeta de crédito</label>
+          <label><input type="radio" name="pago" value="Tarjeta de débito"> Tarjeta de débito</label>
+          <label><input type="radio" name="pago" value="Efectivo"> Efectivo</label>
+        </fieldset>
+        <p class="checkout-note">Esta página es una demostración: el formulario no procesa pagos ni envía los datos a un comercio.</p>
+        <button class="primary-button submit-order" type="submit">Revisar pedido <span>✓</span></button>
+        <p id="checkout-mensaje" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
